@@ -47,9 +47,9 @@
         </el-form-item>
         <el-form-item
           label="性别:"
-          prop="sex"
+          prop="gender"
         >
-          <el-radio-group v-model="ruleForm.sex">
+          <el-radio-group v-model="ruleForm.gender">
             <el-radio label="男"></el-radio>
             <el-radio label="女"></el-radio>
           </el-radio-group>
@@ -108,7 +108,7 @@
             ruleForm : {
                 'name': '',
                 'phone': '',
-                'sex': '男',
+                'gender': '男',
                 'idNumber': '',
                 username: ''
             }
@@ -146,7 +146,7 @@
               if (String(res.code) === '1') {
                 console.log(res.data)
                 this.ruleForm = res.data
-                this.ruleForm.sex = res.data.sex === '0' ? '女' : '男'
+                this.ruleForm.gender = res.data.gender === '0' ? '女' : '男'
                 // this.ruleForm.password = ''
               } else {
                 this.$message.error(res.msg || '操作失败')
@@ -159,7 +159,7 @@
                 if (this.actionType === 'add') {
                   const params = {
                     ...this.ruleForm,
-                    sex: this.ruleForm.sex === '女' ? '0' : '1'
+                    gender: this.ruleForm.gender === '女' ? '0' : '1'
                   }
                   addEmployee(params).then(res => {
                     if (res.code === 1) {
@@ -173,7 +173,7 @@
                           'phone': '',
                           // 'password': '',
                           // 'rePassword': '',/
-                          'sex': '男',
+                          'gender': '男',
                           'idNumber': ''
                         }
                       }
@@ -186,7 +186,7 @@
                 } else {
                   const params = {
                     ...this.ruleForm,
-                    sex: this.ruleForm.sex === '女' ? '0' : '1'
+                    gender: this.ruleForm.gender === '女' ? '0' : '1'
                   }
                   editEmployee(params).then(res => {
                     if (res.code === 1) {
