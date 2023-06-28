@@ -87,8 +87,8 @@ public class EmployeeController {
         Long empId = (Long)httpServletRequest.getSession().getAttribute("employee");
         log.info("httpServletRequest.getSession().getAttribute(\"employee\") : {}",httpServletRequest.getSession().getAttribute("employee") );
 
-        employee.setCreateUser(empId);
-        employee.setUpdateUser(empId);
+        employee.setCreateUser(1L);
+        employee.setUpdateUser(1L);
 
         employeeService.save(employee);
         return BaseResult.success("添加成功");
